@@ -56,12 +56,12 @@ let phraseDisplay = addPhraseToDisplay(randomPhraseArray);
 // This function checks to see if the letter picked matches a letter in the phrase
 
 function checkLetter(button) {
-    let li = document.querySelectorAll('.letter');
+    let letter = document.querySelectorAll('.letter');
     let match = null;
-    for (let i = 0; i < li.lenght; i++) {
-        if (li[i].textContent.toLowerCase() === button.textContent) {
-            li[i].className = 'show';
-            match = li[i].textContent;
+    for (let i = 0; i < letter.lenght; i++) {
+        if (letter[i].textContent.toLowerCase() === button.textContent) {
+            letter[i].className = 'show';
+            match = letter[i].textContent;
         }
     }
     return match;
