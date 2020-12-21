@@ -1,6 +1,6 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-const startButton = document.getElementsByClassName('btn-reset')[0];
+const startButton = document.querySelector('.btn-reset');
 const overlay = document.getElementById('overlay');
 const ul = document.querySelector('ul');
 const phrases = ['Paint the Town Red',
@@ -56,15 +56,15 @@ let phraseDisplay = addPhraseToDisplay(randomPhraseArray);
 // This function checks to see if the letter picked matches a letter in the phrase
 
 function checkLetter(button) {
-    let li = document.getElementsByClassName('letter');
+    let li = document.querySelectorAll('.letter');
     let match = null;
     for (let i = 0; i < li.lenght; i++) {
-        if (li[i].toLowerCase() === button.textContent) {
-            li[i].classList.add ('show');
+        if (li[i].textContent.toLowerCase() === button.textContent) {
+            li[i].className = 'show';
             match = li[i].textContent;
         }
     }
-    return match
+    return match;
 };
 
 // Listens for a click on the keyboard display
@@ -73,7 +73,8 @@ qwerty.addEventListener ('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
         e.target.className = 'chosen';
         e.target.disabled = true;
+    } else if (e.target) {
+        alert('Please click a button');
     }
     let letterFound = checkLetter(e.target);
-    console.log(letterFound);
 });
