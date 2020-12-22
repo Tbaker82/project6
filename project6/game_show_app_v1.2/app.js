@@ -3,6 +3,7 @@ const phrase = document.getElementById('phrase');
 const startButton = document.querySelector('.btn-reset');
 const overlay = document.getElementById('overlay');
 const ul = document.querySelector('ul');
+const hearts = document.querySelectorAll('.tries img');
 const phrases = ['Paint the Town Red',
                  'A Chip on Your Shoulder', 
                  'A Dime a Dozen', 
@@ -58,7 +59,7 @@ let phraseDisplay = addPhraseToDisplay(randomPhraseArray);
 function checkLetter(button) {
     let letter = document.querySelectorAll('.letter');
     let match = null;
-    for (let i = 0; i < letter.lenght; i++) {
+    for (let i = 0; i < letter.length; i++) {
         if (letter[i].textContent.toLowerCase() === button.textContent) {
             letter[i].className = 'show';
             match = letter[i].textContent;
@@ -77,4 +78,25 @@ qwerty.addEventListener ('click', (e) => {
         alert('Please click a button');
     }
     let letterFound = checkLetter(e.target);
+    if (letterFound === null) {
+       hearts[missed].src = 'images/lostHeart.png';
+       missed++;
+    }
+    checkWin();
 });
+
+function checkWin () {
+    const letter = document.querySelectorAll('.letter');
+    const show = document.querySelectorAll('.show');
+    if (letter.length === show.length) {
+        overlay.className = 'win';
+        const winTitle = document.querySelector('H2');
+        winTitle.innerHTML = "Congratulations!! You win!!";
+        overlay.style.display = 'flex';
+    } else if (missed >= 5) {
+        overlay.className = 'lose';
+        const loseTitle = document.querySelector('H2');
+        loseTitle.innerHTML = 'Sorry, you lost.';
+        overlay.style.display = 'flex';
+    }
+}

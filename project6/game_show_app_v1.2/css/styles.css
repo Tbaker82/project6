@@ -34,6 +34,10 @@ li, ol, ul {
   display: inline-block;
 }
 
+li {
+  font-size: 1.25em;
+}
+
 h2 {
   margin: 0;
   text-transform: uppercase;
@@ -78,7 +82,7 @@ button {
 /* Phrase */
 
 .letter {
-  font-size: var(--font-size-medium);
+  font-size: 1.25em;
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
