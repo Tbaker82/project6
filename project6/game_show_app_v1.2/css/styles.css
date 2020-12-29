@@ -129,7 +129,8 @@ button {
 #overlay {
   display: flex;
   flex-direction: column;
-  position: fixed;
+  opacity: 1;
+  position: absolute;
   color: #FFFFFF;
   justify-content: center;
   top: 0;
@@ -137,6 +138,7 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  transition: opacity 1s ease-in-out;
 }
 
 .title {
@@ -145,6 +147,7 @@ button {
 
 .start {
   background-color: var(--color-start);
+  opacity: 0;
 }
 
 .start a {
@@ -166,3 +169,18 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,7 +61,7 @@ function checkLetter(button) {
     let match = null;
     for (let i = 0; i < letter.length; i++) {
         if (letter[i].textContent.toLowerCase() === button.textContent) {
-            letter[i].className = 'show';
+            letter[i].classList.add('show');
             match = letter[i].textContent;
         }
     }
@@ -85,16 +85,18 @@ qwerty.addEventListener ('click', (e) => {
     checkWin();
 });
 
+// This checks to see if the player won or lost the game
+
 function checkWin () {
     const letter = document.querySelectorAll('.letter');
     const show = document.querySelectorAll('.show');
     if (letter.length === show.length) {
-        overlay.className = 'win';
+        overlay.classList.add('win');
         const winTitle = document.querySelector('H2');
         winTitle.innerHTML = "Congratulations!! You win!!";
         overlay.style.display = 'flex';
     } else if (missed >= 5) {
-        overlay.className = 'lose';
+        overlay.classList.add('lose');
         const loseTitle = document.querySelector('H2');
         loseTitle.innerHTML = 'Sorry, you lost.';
         overlay.style.display = 'flex';
